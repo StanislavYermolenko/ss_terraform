@@ -19,6 +19,11 @@ resource "google_compute_instance" "vm_instance" {
   name         = "terraform-instance"
   machine_type = "e2-medium"
 
+  user_data = <<-EOF
+              #!/usr/bin/env bash
+              sudo dnf install -y git
+              EOF
+
   boot_disk {
     initialize_params {
       image = "centos-cloud/centos-8"
