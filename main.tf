@@ -19,7 +19,7 @@ resource "google_compute_instance" "vm_instance" {
   name         = "terraform-instance"
   machine_type = "e2-medium"
 
-  metadata_startup_script = "sudo dnf install -y git"
+  metadata_startup_script = “${startup.sh(/home/samolet777/codebase/ss_terraform/startup.sh)}”
 
   boot_disk {
     initialize_params {
